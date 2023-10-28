@@ -30,6 +30,10 @@ function getRandomIntegerArray(length, min, max) {
     return getArrayOfLength(length).map(() => getRandomInteger(min, max));
 }
 
+function getRandomIntegerMatrix(rows, cols, min, max) {
+    return getArrayOfLength(rows).map(() => getRandomIntegerArray(cols, min, max));
+}
+
 function getRandomSquareMatrix(size, rndMin, rndMax) {
     const matrix = [];
 
