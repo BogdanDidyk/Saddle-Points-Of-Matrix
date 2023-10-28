@@ -26,6 +26,10 @@ function getArrayOfLength(length) {
     return Array.from({length});
 }
 
+function getRandomIntegerArray(length, min, max) {
+    return getArrayOfLength(length).map(() => getRandomInteger(min, max));
+}
+
 function getRandomSquareMatrix(size, rndMin, rndMax) {
     const matrix = [];
 
