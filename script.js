@@ -35,16 +35,7 @@ function getRandomIntegerMatrix(rows, cols, min, max) {
 }
 
 function getRandomSquareMatrix(size, rndMin, rndMax) {
-    const matrix = [];
-
-    for (let i = 0; i < size; i++) {
-        matrix[i] = [];
-        for (let j = 0; j < size; j++) {
-            matrix[i][j] = getRandomInteger(rndMin, rndMax);
-        }
-    }
-
-    return matrix;
+    return getRandomIntegerMatrix(size, size, rndMin, rndMax);
 }
 
 function getMinFromEachMatrixRow(matrix) {
