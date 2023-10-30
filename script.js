@@ -38,6 +38,14 @@ function getRandomSquareMatrix(size, rndMin, rndMax) {
     return getRandomIntegerMatrix(size, size, rndMin, rndMax);
 }
 
+function getArrayMin(arr) {
+    return Math.min(...arr);
+}
+
+function getArrayMax(arr) {
+    return Math.max(...arr);
+}
+
 function getMinFromEachMatrixRow(matrix) {
     const rows = matrix.length;
     const cols = matrix[0].length;
