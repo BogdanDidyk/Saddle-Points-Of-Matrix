@@ -18,8 +18,8 @@ function printMatrix(matrix) {
     matrix.forEach(row => console.log(row.join(" ")));
 }
 
-function getRandomInteger(rndMin = 0, rndMax = 9) {
-    return Math.floor(Math.random() * (rndMax - rndMin + 1)) + rndMin;
+function getRandomInteger(min = 0, max = 9) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function getArrayOfLength(length) {
@@ -34,8 +34,8 @@ function getRandomIntegerMatrix(rows, cols, min, max) {
     return getArrayOfLength(rows).map(() => getRandomIntegerArray(cols, min, max));
 }
 
-function getRandomSquareMatrix(size, rndMin, rndMax) {
-    return getRandomIntegerMatrix(size, size, rndMin, rndMax);
+function getRandomSquareIntegerMatrix(size, min, max) {
+    return getRandomIntegerMatrix(size, size, min, max);
 }
 
 function getArrayMin(arr) {
@@ -46,7 +46,7 @@ function getArrayMax(arr) {
     return Math.max(...arr);
 }
 
-function getMinFromEachMatrixRow(matrix) {
+function getMatrixMinFromEachRow(matrix) {
     const rows = matrix.length;
     const cols = matrix[0].length;
     min = [];
@@ -61,7 +61,7 @@ function getMinFromEachMatrixRow(matrix) {
     return min;
 }
 
-function getMaxFromEachMatrixCol(matrix) {
+function getMatrixMaxFromEachCol(matrix) {
     const rows = matrix.length;
     const cols = matrix[0].length;
     max = [];
@@ -79,8 +79,8 @@ function getMaxFromEachMatrixCol(matrix) {
 function getSaddlePointsOfMatrix(matrix) {
     const rows = matrix.length;
     const cols = matrix[0].length;
-    const min = getMinFromEachMatrixRow(matrix);
-    const max = getMaxFromEachMatrixCol(matrix);
+    const min = getMatrixMinFromEachRow(matrix);
+    const max = getMatrixMaxFromEachCol(matrix);
     const saddlePoints = [];
     
     for (let i = 0; i < rows; i++) {
@@ -94,7 +94,7 @@ function getSaddlePointsOfMatrix(matrix) {
     return saddlePoints;
 }
 
-const matrix = getRandomSquareMatrix(3);
+const matrix = getRandomSquareIntegerMatrix(3);
 printMatrix(matrix);
 console.log("");
 
