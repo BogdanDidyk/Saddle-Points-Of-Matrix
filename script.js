@@ -47,18 +47,7 @@ function getArrayMax(arr) {
 }
 
 function getMatrixMinFromEachRow(matrix) {
-    const rows = matrix.length;
-    const cols = matrix[0].length;
-    min = [];
-
-    for (let i = 0; i < rows; i++) {
-        min[i] = Infinity;
-        for (let j = 0; j < cols; j++) {
-            if (matrix[i][j] < min[i]) min[i] = matrix[i][j];
-        }
-    }
-
-    return min;
+    return matrix.reduce((min, row) => min.concat(getArrayMin(row)), []);
 }
 
 function getMatrixMaxFromEachCol(matrix) {
