@@ -51,18 +51,7 @@ function getMatrixMinFromEachRow(matrix) {
 }
 
 function getMatrixMaxFromEachCol(matrix) {
-    const rows = matrix.length;
-    const cols = matrix[0].length;
-    max = [];
-
-    for (let j = 0; j < cols; j++) {
-        max[j] = -Infinity;
-        for (let i = 0; i < rows; i++) {
-            if (matrix[i][j] > max[j]) max[j] = matrix[i][j];
-        }
-    }
-
-    return max;
+    return matrix.reduce((max, row) => max.map((item, index) => Math.max(item, row[index])), matrix[0]);
 }
 
 function getSaddlePointsOfMatrix(matrix) {
