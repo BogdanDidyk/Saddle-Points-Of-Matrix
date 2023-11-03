@@ -14,6 +14,10 @@ class MatrixElement {
     }
 }
 
+function getJoinedArrayStr(arr, separator = ", ") {
+    return arr.join(separator);
+}
+
 function printMatrix(matrix) {
     matrix.forEach(row => console.log(row.join(" ")));
 }
