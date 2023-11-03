@@ -18,8 +18,8 @@ function getJoinedArrayStr(arr, separator = ", ") {
     return arr.join(separator);
 }
 
-function printMatrix(matrix) {
-    matrix.forEach(row => console.log(row.join(" ")));
+function printMatrix(matrix, itemSeparator = " ") {
+    matrix.forEach(row => console.log(getJoinedArrayStr(row, itemSeparator)));
 }
 
 function getRandomInteger(min = 0, max = 9) {
