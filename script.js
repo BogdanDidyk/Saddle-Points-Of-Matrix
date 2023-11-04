@@ -61,8 +61,10 @@ function getSaddlePointsOfMatrix(matrix) {
 }
 
 const matrix = getRandomSquareIntegerMatrix(3);
-printMatrix(matrix);
-console.log("");
-
 const saddlePoints = getSaddlePointsOfMatrix(matrix);
-console.log(saddlePoints);
+const indices = Array.from(saddlePoints.keys());
+const items = Array.from(saddlePoints.values());
+
+printMatrix(matrix, "   ");
+console.log(`\nIndices: [${getJoinedArrayStr(indices, "; ")}]`);
+console.log(`Items: [${getJoinedArrayStr(items, "; ")}]`);
