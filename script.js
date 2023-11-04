@@ -1,19 +1,3 @@
-class MatrixElement {
-    #rowIndex;
-    #colIndex;
-    #value;
-
-    constructor(rowIndex, colIndex, value) {
-        this.#rowIndex = rowIndex;
-        this.#colIndex = colIndex;
-        this.#value = value;
-    }
-
-    toString() {
-        return `[(${this.#rowIndex}, ${this.#colIndex}); ${this.#value}]`;
-    }
-}
-
 function getJoinedArrayStr(arr, separator = ", ") {
     return arr.join(separator);
 }
@@ -63,12 +47,12 @@ function getSaddlePointsOfMatrix(matrix) {
     const cols = matrix[0].length;
     const min = getMatrixMinFromEachRow(matrix);
     const max = getMatrixMaxFromEachCol(matrix);
-    const saddlePoints = [];
+    const saddlePoints = new Map();
     
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
             if (matrix[i][j] == min[i] && matrix[i][j] == max[j]) {
-                saddlePoints.push(new MatrixElement(i, j, matrix[i][j]));
+                saddlePoints.set([i, j], matrix[i][j]);
             }
         }
     }
@@ -81,4 +65,4 @@ printMatrix(matrix);
 console.log("");
 
 const saddlePoints = getSaddlePointsOfMatrix(matrix);
-saddlePoints.forEach(item => console.log(item.toString()));
+console.log(saddlePoints);
